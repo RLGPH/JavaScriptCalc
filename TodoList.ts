@@ -20,11 +20,11 @@ class TodoApp {
 
     // Add new Todo
     addTodo() {
-        const task = this.todoInput.value.trim();  // Get the value from the input box
+        const task = this.todoInput.value.trim(); 
         if (task) {
             this.todoList.push({ id: this.nextId++, task: task, isEditing: false });
-            this.todoInput.value = '';  // Clear the input field
-            this.render();  // Render the updated list
+            this.todoInput.value = '';
+            this.render();
         }
     }
 
@@ -33,7 +33,7 @@ class TodoApp {
         this.todoList = this.todoList.map(todo =>
             todo.id === id ? { ...todo, isEditing: true } : todo
         );
-        this.render();  // Re-render after editing
+        this.render();
     }
 
     // Save the edited Todo
@@ -44,19 +44,19 @@ class TodoApp {
             this.todoList = this.todoList.map(todo =>
                 todo.id === id ? { ...todo, task: updatedTask, isEditing: false } : todo
             );
-            this.render();  // Re-render after saving
+            this.render();
         }
     }
 
     // Delete Todo
     deleteTodo(id: number) {
         this.todoList = this.todoList.filter(todo => todo.id !== id);
-        this.render();  // Re-render after deleting
+        this.render();
     }
 
     // Render Todo List
     render() {
-        this.todoListElement.innerHTML = ''; // Clear the current list
+        this.todoListElement.innerHTML = '';
 
         this.todoList.forEach(todo => {
             const li = document.createElement('li');

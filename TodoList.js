@@ -23,11 +23,11 @@ var TodoApp = /** @class */ (function () {
     }
     // Add new Todo
     TodoApp.prototype.addTodo = function () {
-        var task = this.todoInput.value.trim(); // Get the value from the input box
+        var task = this.todoInput.value.trim();
         if (task) {
             this.todoList.push({ id: this.nextId++, task: task, isEditing: false });
-            this.todoInput.value = ''; // Clear the input field
-            this.render(); // Render the updated list
+            this.todoInput.value = '';
+            this.render();
         }
     };
     // Edit Todo
@@ -35,7 +35,7 @@ var TodoApp = /** @class */ (function () {
         this.todoList = this.todoList.map(function (todo) {
             return todo.id === id ? __assign(__assign({}, todo), { isEditing: true }) : todo;
         });
-        this.render(); // Re-render after editing
+        this.render();
     };
     // Save the edited Todo
     TodoApp.prototype.saveTodo = function (id) {
@@ -45,18 +45,18 @@ var TodoApp = /** @class */ (function () {
             this.todoList = this.todoList.map(function (todo) {
                 return todo.id === id ? __assign(__assign({}, todo), { task: updatedTask, isEditing: false }) : todo;
             });
-            this.render(); // Re-render after saving
+            this.render();
         }
     };
     // Delete Todo
     TodoApp.prototype.deleteTodo = function (id) {
         this.todoList = this.todoList.filter(function (todo) { return todo.id !== id; });
-        this.render(); // Re-render after deleting
+        this.render();
     };
     // Render Todo List
     TodoApp.prototype.render = function () {
         var _this = this;
-        this.todoListElement.innerHTML = ''; // Clear the current list
+        this.todoListElement.innerHTML = '';
         this.todoList.forEach(function (todo) {
             var li = document.createElement('li');
             li.id = "todo-".concat(todo.id);
@@ -73,3 +73,4 @@ var TodoApp = /** @class */ (function () {
 }());
 // Initialize the app
 var todoApp = new TodoApp();
+//# sourceMappingURL=TodoList.js.map
